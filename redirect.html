@@ -3,24 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Redirecting…</title>
+  <title>Psst… the fox has something for you</title>
   <style>
-    body { font-family: sans-serif; display: flex; align-items: center;
-            justify-content: center; height: 100vh; margin: 0; background: #f5f5f5; }
-    p    { color: #555; font-size: 1.1rem; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #D5AF72;
+      color: #80171C;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      gap: 2rem;
+    }
+
+    /* ── Fox silhouette ── */
+    .fox {
+      font-size: 4.5rem;
+      animation: sway 2s ease-in-out infinite;
+      filter: drop-shadow(0 4px 8px rgba(128,23,28,0.3));
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(-6deg) scale(1);   }
+      50%       { transform: rotate( 6deg) scale(1.08); }
+    }
+
+    /* ── Tagline ── */
+    .tagline {
+      font-size: 1.25rem;
+      font-style: italic;
+      letter-spacing: 0.04em;
+      opacity: 0.9;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    /* ── Three pulsing paw prints ── */
+    .paws {
+      display: flex;
+      gap: 1.4rem;
+      align-items: center;
+    }
+
+    .paw {
+      font-size: 2rem;
+      opacity: 0.2;
+      animation: pulse 1.2s ease-in-out infinite;
+      filter: drop-shadow(0 2px 4px rgba(128,23,28,0.4));
+    }
+
+    .paw:nth-child(1) { animation-delay: 0s;    }
+    .paw:nth-child(2) { animation-delay: 0.4s;  }
+    .paw:nth-child(3) { animation-delay: 0.8s;  }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.2; transform: scale(0.85) translateY(0);    }
+      50%       { opacity: 1;   transform: scale(1.25) translateY(-6px); }
+    }
+
+    /* ── Sub-copy ── */
+    .sub {
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.65;
+    }
   </style>
 </head>
 <body>
-  <p>Redirecting you to one of 5 destinations…</p>
+  <div class="fox">🦊</div>
+  <p class="tagline">Slipping through the back alley…<br>the fox is fetching your goods.</p>
+  <div class="paws">
+    <span class="paw">🐾</span>
+    <span class="paw">🐾</span>
+    <span class="paw">🐾</span>
+  </div>
+  <p class="sub">One moment&hellip;</p>
+
   <script>
     var urls = [
-    "https://drive.google.com/file/d/15h5KyvsvYKomT2fEtU-dECkLac4PX45E/view?usp=sharing",
-    "https://drive.google.com/file/d/1wUhoNqYo0fIPMRX4FfA093kUYa7kxofm/view?usp=sharing",
-    "https://drive.google.com/file/d/1TZwpVSMMVDPGdq7T9gLzPdErC31QKyFJ/view?usp=sharing",
-    "https://drive.google.com/file/d/1LtdCyviJbO0scqY5D1sJROVXgvOGyflO/view?usp=sharing",
-    "https://drive.google.com/file/d/1htVa-xY4--1jhm0IhPk2n-Wzd5ua1BIW/view?usp=sharing"
-];
-    window.location.replace(urls[Math.floor(Math.random() * urls.length)]);
-  </script>
-</body>
-</html>
+      "https://drive.google.com/file/d/15h5KyvsvYKomT2fEtU-dECkLac4PX45E/view?usp=sharing",
+      "https://drive.google.com/file/d/1wUhoNqYo0fIPMRX4FfA093kUYa7kxofm/view?usp=sharing",
+      "https://drive.google.com/file/d/1TZwpVSMMVDPGdq7T9gLzPdErC31QKyFJ/view?usp=sharing",
+      "https://drive.google.com/file/d/1LtdCyviJbO0scqY5D1sJROVXgvOGyflO/view?usp=sharing",
+      "https://drive.google.com/file/d/1htVa-xY4--1jhm0IhPk2n-Wzd5ua1BIW/view?usp=sharing"
+    ];
