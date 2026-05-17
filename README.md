@@ -1,0 +1,1 @@
+# btc-hf-qr-redirects
